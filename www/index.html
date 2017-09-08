@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="components/loader.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/cssua.min.js"></script>
+</head>
+<body>
+    <!--トップページ-->
+    <div data-role="page" class="installationList" id="installationList">
+        <div data-role="header" data-position="fixed" data-theme="c">
+            <h1>SegmentPushApp</h1>
+            <!--<a href="#add-page" data-icon="add" class="ui-btn-right">Add</a>-->
+        </div>
+        <!-- installation -->
+        <div data-role="content" data-inset="true" data-mode="columntoggle" class="currentInstallation" id="currentInstallation">
+            <!--CurrentInstallation-->
+            <table data-role="listview" class="installationData" id="installationData">
+                <tr style="border-right: 1px solid #ccc; border-left: 1px solid #ccc; color: #FFFFFF; background: #04162e;">
+                    <th scope="row" id='key'>key</th><td scope="row" id='value'>value</td>
+                    
+                </tr>
+            </table>
+        </div>
+        <!-- ボタン -->
+        <div data-role="content">
+            <!--add-->
+            <input id="updateButton" type="button" value="add" onclick="addField()"  data-theme="b">
+            <!--update-->
+            <input id="updateButton" type="button" value="update" onclick="updateInstallation()"  data-theme="b">
+        </div>
+    </div>
+</body>
+</html>
