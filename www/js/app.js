@@ -7,6 +7,7 @@ var senderId = "591757477595";
 
 // SDKの初期化
 var ncmb = new NCMB(applicationKey, clientKey);
+var push = new ncmb.Push();
 
 // installationのobjectId
 var installation_objectId = "";
@@ -20,6 +21,7 @@ document.addEventListener("deviceready", function() {
     window.NCMB.monaca.setHandler (function(jsonData){
         // 送信時に指定したJSONが引数として渡されます
         alert("callback:" + JSON.stringify(jsonData));
+        alert("コールバック完了");
     });
 
     /* 端末登録成功時の処理 */
@@ -173,4 +175,20 @@ function addField() {
 
     }
 
+}
+
+function sendMessage() {
+    push.set("immediateDeliveryFlag", true)
+        .set("message", "Hello, World!")
+        .set("target", ["android"]);
+
+    push.send()
+        .then(function(push){
+          // 送信後処理
+            alert("送信後処理");
+         })
+        .catch(function(err){
+           // エラー処理
+            alert("エラー処理");
+         });
 }
